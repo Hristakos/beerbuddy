@@ -121,7 +121,7 @@ function getMap() {
         console.log(res.data);
         let select = document.createElement("select");
 
-        beerBrands.forEach((beerBrand) => {
+        beerBrands.forEach(beerBrand => {
             let option = document.createElement("option");
             option.textContent = beerBrand.beerbrand;
             option.setAttribute("value", beerBrand.id);
@@ -131,11 +131,11 @@ function getMap() {
             searchDiv.appendChild(select);
         });
 
-        select.addEventListener("change", (e) => {
+        select.addEventListener('change', (e) => {
             var path = `/pubs/beerbrand/${e.target.value}`;
             console.log(path);
             axios.get(path).then((res) => {
-                console.log(res.data);
+                console.log(res.data)
 
                 let pubs = res.data;
                 map.entities.clear();
@@ -154,11 +154,7 @@ function getMap() {
                         id: pub.id,
                     };
 
-                    Microsoft.Maps.Events.addHandler(
-                        pin,
-                        "click",
-                        handlePinClick
-                    );
+                    Microsoft.Maps.Events.addHandler(pin, "click", handlePinClick);
 
                     //Add the pushpin to the map
                     map.entities.push(pin);
@@ -173,7 +169,7 @@ function getMap() {
         let beerTypes = res.data;
         // console.log(res.data);
         let selectBeerType = document.createElement("select");
-        beerTypes.forEach((beerType) => {
+        beerTypes.forEach(beerType => {
             let option = document.createElement("option");
             option.textContent = beerType.beertype;
             option.setAttribute("value", beerType.id);
@@ -181,13 +177,13 @@ function getMap() {
             let input = document.createElement("input");
             input.setAttribute("value", beerType.beertype);
             searchDiv.appendChild(selectBeerType);
-        });
+        })
 
-        selectBeerType.addEventListener("change", (e) => {
+        selectBeerType.addEventListener('change', (e) => {
             var path = `/pubs/beertype/${e.target.value}`;
             console.log(path);
             axios.get(path).then((res) => {
-                console.log(res.data);
+                console.log(res.data)
 
                 let pubs = res.data;
                 map.entities.clear();
@@ -206,17 +202,14 @@ function getMap() {
                         id: pub.id,
                     };
 
-                    Microsoft.Maps.Events.addHandler(
-                        pin,
-                        "click",
-                        handlePinClick
-                    );
+                    Microsoft.Maps.Events.addHandler(pin, "click", handlePinClick);
 
                     //Add the pushpin to the map
                     map.entities.push(pin);
                 });
             });
-        });
+        })
+
     });
 }
 
@@ -264,8 +257,10 @@ btnAddAddress.addEventListener("click", handleAddAddress);
 // #map.addEventListener("load", myScript);
 
 // let searchDiv = document.querySelector("#search-filters");
-document.addEventListener("DOMContentLoaded", (e) => {
+document.addEventListener('DOMContentLoaded', (e) => {
     // alert("abcd");
-});
+
+})
+
 
 // searchDiv.appendChild(select);
